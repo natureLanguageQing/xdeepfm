@@ -1,14 +1,16 @@
-from args import parse_args
 import os
-import paddle.fluid as fluid
 import sys
-import network_conf
 import time
+
+import paddle.fluid as fluid
+
 import utils
+from args import parse_args
 
 
 def train():
     args = parse_args()
+    # 打印参数
     print(args)
     if not os.path.isdir(args.model_output_dir):
         os.mkdir(args.model_output_dir)
@@ -40,7 +42,7 @@ def train():
 
     for epoch_id in range(args.num_epoch):
         start = time.time()
-        sys.stderr.write('\nepoch%d start ...\n' % (epoch_id + 1))
+        sys.stderr.write('\n epoch%d start ...\n' % (epoch_id + 1))
         exe.train_from_dataset(
             program=fluid.default_main_program(),
             dataset=dataset,

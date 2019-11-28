@@ -1,5 +1,4 @@
 import paddle.fluid as fluid
-import math
 
 
 def ctr_xdeepfm_model(embedding_size,

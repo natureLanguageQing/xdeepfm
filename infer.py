@@ -1,14 +1,13 @@
 import logging
-import numpy as np
-import pickle
 import os
+
+import numpy as np
 import paddle
 import paddle.fluid as fluid
 
+import utils
 from args import parse_args
 from criteo_reader import CriteoDataset
-import network_conf
-import utils
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger('fluid')
@@ -66,7 +65,7 @@ def infer():
                 num_ins += len(data_test)
                 loss_all += loss_val * len(data_test)
                 logger.info('TEST --> batch: {} loss: {} auc_val: {}'.format(
-                    batch_id, loss_all / num_ins, auc_val))
+                    batch_id+1, loss_all / num_ins, auc_val))
 
             print(
                 'The last log info is the total Logloss and AUC for all test data. '

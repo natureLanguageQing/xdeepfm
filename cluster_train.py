@@ -2,9 +2,9 @@ import argparse
 import os
 import sys
 import time
-import network_conf
 
 import paddle.fluid as fluid
+
 import utils
 
 
@@ -153,7 +153,7 @@ def train():
 
         for epoch_id in range(args.num_epoch):
             start = time.time()
-            sys.stderr.write('\nepoch%d start ...\n' % (epoch_id + 1))
+            sys.stderr.write('\n epoch%d start ...\n' % (epoch_id + 1))
             exe.train_from_dataset(
                 program=main_program,
                 dataset=dataset,

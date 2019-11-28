@@ -1,12 +1,13 @@
+import functools
 import os
-import time
+import platform
 import shutil
-import requests
 import sys
 import tarfile
+import time
 import zipfile
-import platform
-import functools
+
+import requests
 
 lasttime = time.time()
 FLUSH_INTERVAL = 0.1

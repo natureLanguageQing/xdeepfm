@@ -1,8 +1,4 @@
-import sys
 import paddle.fluid.incubate.data_generator as dg
-import pickle
-from collections import Counter
-import os
 
 
 class CriteoDataset(dg.MultiSlotDataGenerator):
@@ -16,10 +12,10 @@ class CriteoDataset(dg.MultiSlotDataGenerator):
         label = [int(features[0])]
         return feat_idx, feat_value, label
 
-    def test(self, filelist):
+    def test(self, file_list):
         def local_iter():
-            for fname in filelist:
-                with open(fname.strip(), 'r') as fin:
+            for f_name in file_list:
+                with open(f_name.strip(), 'r') as fin:
                     for line in fin:
                         feat_idx, feat_value, label = self._process_line(line)
                         yield [feat_idx, feat_value, label]

@@ -1,6 +1,7 @@
-import sys
-import paddle.fluid as fluid
 import logging
+import sys
+
+import paddle.fluid as fluid
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
